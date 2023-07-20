@@ -1,0 +1,20 @@
+{
+  "name": "healthxp-web",
+  "version": "1.0.1",
+  "description": "Portal do administrador da academia",
+  "main": "server.js",
+  "scripts": {
+    "dev": "npx serve -s build",
+    "devmon": "nodemon server.js"
+  },
+  "keywords": [
+    "qax"
+  ],
+  "author": "Fernando Papito",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.19.1",
+    "serve": "^14.2.0"
+  }
+}

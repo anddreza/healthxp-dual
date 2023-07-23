@@ -7,8 +7,10 @@ describe ('login', () => {
 		}
 		// Quando faço login no gestor de academias
 		cy.visit('http://localhost:3000')
-		cy.get('input[name=email]').type(user.email)
-		cy.get('input[name=password]').type(user.password)
+	//	cy.get('input[name=email]').type(user.email)
+	//	cy.get('input[name=password]').type(user.password)
+		cy.get('#email').type(user.email)
+		cy.get('#password').type(user.password)
 		cy.contains('button', 'Entrar')
 			.click()
 		

@@ -6,15 +6,10 @@ describe ('login', () => {
 		cy.visit('http://localhost:3000')
 		cy.get('input[name=email]').type(user.email)
 		cy.get('input[name=password]').type(user.password)
-		cy.contains('button', 'Entrar').click()
+		cy.contains('button', 'Logar').click()
 
 		cy.contains('aside .logged-user', 'Olá, ' + user.name)
-			.click()
-		
-
-		cy.contains('aside .logged-user', 'Olá, Admin')
-			.should('be.visible')
-			
+		   .should('be.visible')		
 	})
 
 	it('não deve logar com senha incorreta', () => {
@@ -56,6 +51,40 @@ describe ('login', () => {
 		cy.get('#swal2-content')
 			.should('be.visible')
 			.should('have.text', 'Insira um email válido.')
+
+	})
+
+	it('não deve logar com email em branco', () => {
+		const user = users.empty_email
+
+		cy.visit('http://localhost:3000')
+		if(user.email){
+			cy.get('input[name=email]').type(user.email)
+		}
+		cy.get('input[name=password]').type(user.password)	
+		cy.contains('button', 'Entrar').click()
+
+		cy.get('#swal2-content')
+			.should('be.visible')
+			.should('have.text', 'Os campos email e senha são obrigatórios.')
+
+	})
+
+	it('não deve logar com senha em branco', () => {
+		const user = users.empty_password
+
+		cy.visit('http://localhost:3000')
+		if(user.email){
+			cy.get('input[name=email]').type(user.email)
+		}
+		if(user.password){
+			cy.get('input[name=password]').type(user.password)		
+		}
+		cy.contains('button', 'Entrar').click()
+
+		cy.get('#swal2-content')
+			.should('be.visible')
+			.should('have.text', 'Os campos email e senha são obrigatórios.')
 
 	})
 })

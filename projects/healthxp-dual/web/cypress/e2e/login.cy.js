@@ -2,6 +2,7 @@ describe ('login', () => {
 	it('deve logar com o perfil do admin', () => {
 		//Dado que eu tenho um usuário admin cadastrado
 		const user = {
+			name: 'Admin', 
 			email: 'admin@healthxp.com',
 			password: 'xperience'
 		}
@@ -9,7 +10,9 @@ describe ('login', () => {
 		cy.visit('http://localhost:3000')
 		cy.get('input[name=email]').type(user.email)
 		cy.get('input[name=password]').type(user.password)
-		cy.contains('button', 'Entrar')
+		
+		//cy.contains('button', 'Entrar')
+		cy.contains('aside .logged-user', 'Olá, ' + user.name)
 			.click()
 		
 		// Então devo ver o dashboard

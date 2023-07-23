@@ -1,11 +1,7 @@
 describe ('login', () => {
 	it('deve logar com o perfil do admin', () => {
 		//Dado que eu tenho um usuário admin cadastrado
-		const user = {
-			name: 'Admin', 
-			email: 'admin@healthxp.com',
-			password: 'xperience'
-		}
+	
 		// Quando faço login no gestor de academias
 		cy.visit('http://localhost:3000')
 		cy.get('input[name=email]').type(user.email)

@@ -45,6 +45,7 @@ Cypress.Commands.add('popUpHave', (text) => {
 import users from '../fixtures/users.json'
 import login from './pages/LoginPage'
 import dash from './pages/DashPage'
+
 Cypress.Commands.add('adminLogin', ()=> {
 	const user = users.admin
 	login.doLogin(user)

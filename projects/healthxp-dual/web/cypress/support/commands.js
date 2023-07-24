@@ -23,7 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-Cypress.Commands.add('doLogin', (user) => {
+/*Cypress.Commands.add('doLogin', (user) => {
+	// temos uma função que faz login
 	cy.visit('http://localhost:3000')
 
 	if(user.email){
@@ -40,4 +41,12 @@ Cypress.Commands.add('popUpHave', (text) => {
 	cy.get('#swal2-content')
 			.should('be.visible')
 			.should('have.text', text)
+})*/
+import users from '../fixtures/users.json'
+import login from './pages/LoginPage'
+import dash from './pages/DashPage'
+Cypress.Commands.add('adminLogin', ()=> {
+	const user = users.admin
+	login.doLogin(user)
+	dash.userLoggedIn(user.name)
 })

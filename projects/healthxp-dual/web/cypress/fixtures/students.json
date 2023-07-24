@@ -1,0 +1,9 @@
+{
+	"create": {
+		"name": "Jeremy Adams",
+		"email": "jeremy@yahoo.com",
+		"age": "28",
+		"weight": "72",
+		"feet_tall": "1.80"
+	}
+}

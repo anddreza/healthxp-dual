@@ -7,13 +7,13 @@ class LoginPage{
 	fill(user){
 		if(user.email){
 			cy.get('input[name=email]')
-				.clear()
+				.clear({force: true})
 				.type(user.email)
 		}
 	
 		if(user.password){
 			cy.get('input[name=password]')
-				.clear()
+				.clear({force: true})
 				.type(user.password)
 		}
 	}
@@ -25,6 +25,10 @@ class LoginPage{
 		this.go()
 		this.fill(user)
 		this.submit()
+	}
+
+	popUp(){
+		return cy.get('#swal2-content')
 	}
 
 	popUpHave(text){

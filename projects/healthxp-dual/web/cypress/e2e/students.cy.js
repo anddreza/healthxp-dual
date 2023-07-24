@@ -1,7 +1,15 @@
 import students from '../fixtures/students.json'
+
+import users from '../fixtures/users.json'
+import login from '../support/pages/LoginPage'
+import dash from '../support/pages/DashPage'
 describe('students', ()=> {
 	it('deve poder cadastrar um novo aluno', () => {
 		const student = students.create
+
+		const user = users.admin
+		login.doLogin(user)
+		dash.userLoggedIn(user.name)
 	
 		//cy.contains('a', 'Cadastrar').click()
 
@@ -15,6 +23,6 @@ describe('students', ()=> {
 
 		//button[form="formStudent"]
 		cy.contains('button', 'Cadastrar').click()
-		
+
 	})
 })

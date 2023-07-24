@@ -26,12 +26,13 @@ describe ('login', () => {
 
 	})
 
-	it('não deve logar com email incorreto', () => {
-		const user = users.inv_email
-
-		login.submit(user)
-		login.popUpHave('Insira um email válido.')
-
+	it.only('não deve logar com emails incorretos', () => {
+		const emails = users.inv_emails
+	
+		emails.forEach((u) => {
+			login.submit(u)
+			login.popUpHave('Insira um email válido.')
+		});
 	})
 
 	it('não deve logar com email em branco', () => {

@@ -6,21 +6,35 @@ class LoginPage{
 	}
 	fill(user){
 		if(user.email){
-			cy.get('input[name=email]').type(user.email)
+			cy.get('input[name=email]')
+				.clear()
+				.type(user.email)
 		}
 	
 		if(user.password){
-			cy.get('input[name=password]').type(user.password)
+			cy.get('input[name=password]')
+				.clear()
+				.type(user.password)
 		}
 	}
-	submit(user){	
+	submit(){	
 		cy.contains('button', 'Entrar').click()
+	}
+
+	doLogin(user){
+		this.go()
+		this.fill(user)
+		this.submit()
 	}
 
 	popUpHave(text){
 		cy.get('#swal2-content')
 			.should('be.visible')
 			.should('have.text', text)
+	}
+	popUpBack(){
+		cy.get('.swal2-cancel')
+			.click()
 	}
 }
 

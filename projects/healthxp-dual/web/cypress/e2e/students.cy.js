@@ -3,9 +3,9 @@ describe('students', ()=> {
 	it('deve poder cadastrar um novo aluno', () => {
 		const student = students.create
 	
+		cy.task('deleteStudent', student.email)
 		cy.adminLogin()
 		//cy.contains('a', 'Cadastrar').click()
-
 		cy.get('a[href="/students/new"]').click()
 
 		cy.get('input[name=name]').type(student.name)

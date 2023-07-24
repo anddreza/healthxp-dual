@@ -12,10 +12,16 @@
     "email": "404@test.com",
     "password": "123456"
   },
-  "inv_email": {
-    "email": "admin&test.com",
-    "password": "123456"
-  },
+  "inv_emails":[ 
+    { "email": "admin&test.com", "password": "123456" },
+    { "email": "www.test.com", "password": "123456" },
+    { "email": "1234567890", "password": "123456" },
+    { "email": "asdasasddas", "password": "123456" },
+    { "email": "asdASD12343", "password": "123456" },
+    { "email": "*&¨&¨6&8&", "password": "123456" },
+    { "email": "admin*test.com", "password": "123456" },
+    { "email": "   @test.com", "password": "123456" }
+  ],
   "empty_email": {
     "email": "",
     "password": "123456"

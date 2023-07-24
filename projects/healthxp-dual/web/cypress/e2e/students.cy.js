@@ -1,7 +1,16 @@
 import students from '../fixtures/students.json'
+import { faker } from '@faker-js/faker';
+
 describe('students', ()=> {
 	it('deve poder cadastrar um novo aluno', () => {
-		const student = students.create
+		const student = {
+			name: 'Jeremy Adams',
+			email: faker.internet.email(),
+			age: '28',
+			weight: '75',
+			feet_tall: '1.80'
+
+		}
 	
 		cy.adminLogin()
 		//cy.contains('a', 'Cadastrar').click()

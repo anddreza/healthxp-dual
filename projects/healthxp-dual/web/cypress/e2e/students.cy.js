@@ -32,5 +32,11 @@ describe('alunos', ()=> {
 
 		//td[text()="fernando@yahoo.com"]/..//button
 
+
+		studentPage.search(student.name)
+		studentPage.remove(student.email)
+		studentPage.popup.confirm()
+		studentPage.popup.haveText('Exclusão realizada com sucesso.')
+
 	})
 })

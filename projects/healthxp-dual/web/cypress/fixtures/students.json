@@ -5,5 +5,19 @@
 		"age": "28",
 		"weight": "72",
 		"feet_tall": "1.80"
+	},
+	"duplicate": {
+		"name": "Bruce",
+		"email": "bruce@yahoo.com",
+		"age": "28",
+		"weight": "72",
+		"feet_tall": "1.80"
+	},
+	"remove": {
+		"name": "Falcao",
+		"email": "falcao@gmail.com",
+		"age": "28",
+		"weight": "72",
+		"feet_tall": "1.80"
 	}
 }

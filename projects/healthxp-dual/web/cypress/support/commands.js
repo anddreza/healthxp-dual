@@ -43,11 +43,11 @@ Cypress.Commands.add('popUpHave', (text) => {
 			.should('have.text', text)
 })*/
 import users from '../fixtures/users.json'
-import login from './pages/LoginPage'
-import dash from './pages/DashPage'
+import loginPage from './pages/LoginPage'
+import studentPage from './pages/StudentPage'
 
 Cypress.Commands.add('adminLogin', ()=> {
 	const user = users.admin
-	login.doLogin(user)
-	dash.userLoggedIn(user.name)
+	loginPage.doLogin(user)
+	studentPage.navbar.userLoggedIn(user.name)
 })

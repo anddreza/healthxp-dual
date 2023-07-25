@@ -12,13 +12,20 @@ class StudentPage{
 	}
 
 	submitForm(student){
-		cy.get('input[name=name]').type(student.name)
-		cy.get('input[name=email]').type(student.email)
-		cy.get('input[name=age]').type(student.age)
-		cy.get('input[name=weight]').type(student.weight)
-		cy.get('input[name=feet_tall]').type(student.feet_tall)
+		if(student.name) cy.get('input[name=name]').clear().type(student.name)
+		if(student.email) cy.get('input[name=email]').clear().type(student.email)
+		if(student.age) cy.get('input[name=age]').clear().type(student.age)
+		if(student.weight) cy.get('input[name=weight]').clear().type(student.weight)
+		if(student.feet_tall) cy.get('input[name=feet_tall]').clear().type(student.feet_tall)
 
 		cy.contains('button', 'Cadastrar').click()
+	}
+
+	requiredMessage(label, text){
+		cy.contains('label', label)
+		.parent()
+		.find('span')
+		.should('have.text', text)
 	}
 	//popUpHave(expectedText){
 	//	cy.get('#swal2-content')

@@ -19,5 +19,13 @@
 		"age": "28",
 		"weight": "72",
 		"feet_tall": "1.80"
+	},
+	"required": {
+		"name": "",
+		"email": "",
+		"age": "",
+		"weight": "",
+		"feet_tall": ""
 	}
+
 }

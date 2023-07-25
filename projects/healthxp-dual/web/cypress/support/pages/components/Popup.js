@@ -1,11 +1,11 @@
 class Popup{
 
-	element(){
+	content(){
 		return cy.get('#swal2-content')
 	}
 
 	haveText(text){
-		cy.get('#swal2-content')
+		this.content()
 			.should('be.visible')
 			.should('have.text', text)
 	}

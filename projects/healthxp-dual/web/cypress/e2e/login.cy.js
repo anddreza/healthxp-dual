@@ -17,7 +17,7 @@ describe ('login', () => {
 		const user = users.inv_pass
 
 		loginPage.doLogin(user)
-		loginPage.popup.popUpHave('Suas credenciais são inválidas, por favor tente novamente!')
+		loginPage.popup.haveText('Suas credenciais são inválidas, por favor tente novamente!')
 
 	})
 
@@ -25,7 +25,7 @@ describe ('login', () => {
 		const user = users.email_not_found
 
 		loginPage.doLogin(user)
-		loginPage.popup.popUpHave('Suas credenciais são inválidas, por favor tente novamente!')
+		loginPage.popup.haveText('Suas credenciais são inválidas, por favor tente novamente!')
 
 	})
 
@@ -40,7 +40,7 @@ describe ('login', () => {
 			loginPage.fill(u)
 			loginPage.submit()
 
-			loginPage.popup.popUp()
+			loginPage.popup.content()
 				.invoke('text')
 				.then((t) => {
 					cy.log(t)
@@ -48,7 +48,7 @@ describe ('login', () => {
 					expectedMessages.push('Insira um email válido.')
 				})
 			//login.popUpHave('Insira um email válido.')
-			loginPage.popup.popUpBack()
+			loginPage.popup.back()
 		});
 
 		cy.wrap(outputMessages).should('deep.equal', expectedMessages )
@@ -58,14 +58,14 @@ describe ('login', () => {
 		const user = users.empty_email
 
 		loginPage.doLogin(user)
-		loginPage.popup.popUpHave('Os campos email e senha são obrigatórios.')
+		loginPage.popup.haveText('Os campos email e senha são obrigatórios.')
 
 	})
 
 	it('não deve logar com senha em branco', () => {
 		const user = users.empty_password
 		loginPage.doLogin(user)
-		loginPage.popup.popUpHave('Os campos email e senha são obrigatórios.')
+		loginPage.popup.haveText('Os campos email e senha são obrigatórios.')
 
 	})
 })

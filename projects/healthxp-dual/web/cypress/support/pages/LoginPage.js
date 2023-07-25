@@ -1,5 +1,10 @@
 // aqui temos uma classe representando a página de login, aqui tem mais organização que no Cypress.Commands
+import popup from './components/Popup'
 class LoginPage{
+
+	constructor(){
+		this.popup = popup
+	}
 
 	go(){
 		cy.visit('http://localhost:3000')
@@ -27,19 +32,6 @@ class LoginPage{
 		this.submit()
 	}
 
-	popUp(){
-		return cy.get('#swal2-content')
-	}
-
-	popUpHave(text){
-		cy.get('#swal2-content')
-			.should('be.visible')
-			.should('have.text', text)
-	}
-	popUpBack(){
-		cy.get('.swal2-cancel')
-			.click()
-	}
 }
 
 export default new LoginPage()

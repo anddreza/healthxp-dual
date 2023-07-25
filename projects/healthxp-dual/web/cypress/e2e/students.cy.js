@@ -39,4 +39,24 @@ describe('alunos', ()=> {
 		studentPage.popup.haveText('Exclusão realizada com sucesso.')
 
 	})
+
+	it.only('todos os campos são obrigatórios', () => {
+		const student = students.required
+
+		cy.adminLogin()
+		studentPage.goToRegister()
+		studentPage.submitForm(student)
+
+		//label[text()="Nome completo"]/..//span
+		// Esse é mais seguro das duas opções
+		studentPage.requiredMessage('Nome completo', 'Nome é obrigatório')
+		studentPage.requiredMessage('E-mail', 'O email é obrigatório')
+		studentPage.requiredMessage('Idade', 'A idade é obrigatória')
+		studentPage.requiredMessage('Peso (em kg)', 'O peso é obrigatório')
+		studentPage.requiredMessage('Altura', 'A altura é obrigatória')
+
+		//cy.contains('span', 'Nome é obrigatório')
+		//	.should('be.visible')
+
+	})
 })

@@ -29,10 +29,25 @@
 	},
 	"student_15": {
 		"name": "Joao 15 anos",
-		"email": "joao15@gmail.com",
+		"email": "joao1@gmail.com",
 		"age": "15",
 		"weight": "90",
 		"feet_tall": "1.80"
-	}
-
+	},
+	"student_weight": [
+		{
+			"name": "Lucas",
+			"email": "lucasteste2@gmail.com",
+			"age": "20",
+			"weight": "-10",
+			"feet_tall": "1.90"
+		},
+		{
+			"name": "Gabriela",
+			"email": "gabrielteste2@gmail.com",
+			"age": "20",
+			"weight": "80",
+			"feet_tall": "-10"
+		}
+	]
 }

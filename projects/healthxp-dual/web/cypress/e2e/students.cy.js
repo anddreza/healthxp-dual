@@ -1,31 +1,31 @@
 import students from '../fixtures/students.json'
 import studentPage from '../support/pages/StudentPage'
-describe('alunos', ()=> {
+describe('alunos', () => {
 	it('deve poder cadastrar um novo aluno', () => {
 		const student = students.create
-	
+
 		cy.task('deleteStudent', student.email)
 		cy.adminLogin()
 		//cy.contains('a', 'Cadastrar').click()
-		
+
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
 		studentPage.popup.haveText('Dados cadastrados com sucesso.')
 	})
 
-	it('não deve cadastrar com email duplicado', () =>{
+	it('não deve cadastrar com email duplicado', () => {
 		const student = students.duplicate
-	
+
 		//cy.task('deleteStudent', student.email)
 		cy.task('resetStudent', student)
 		cy.adminLogin()
-		
+
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
 		studentPage.popup.haveText('O email informado já foi cadastrado!')
 	})
 
-	it('deve remover um aluno sem matrícula', () =>{
+	it('deve remover um aluno sem matrícula', () => {
 		const student = students.remove
 		cy.task('resetStudent', student)
 		cy.adminLogin()
@@ -62,24 +62,31 @@ describe('alunos', ()=> {
 
 	it('não deve cadastrar aluno com idade com 15 anos', () => {
 		const student = students.student_15
-	
+
 		cy.adminLogin()
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
 		studentPage.ageMin()
 
 	})
-	
-	it.only('não deve cadastrar aluno com idade com 16 anos', () => {
-		const student = students.student_16
-	
+
+	it('não deve cadastrar aluno com peso menor ou igual a zero', () => {
+		const student = students.student_weight[0]
+
 		cy.adminLogin()
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
-
-		studentPage.ageMin()
-
-
+		studentPage.failWeightRegister()
+		cy.log(studentPage.failWeightRegister())
 	})
 
+	it('não deve cadastrar aluno com altura menor ou igual a zero', () => {
+		const student = students.student_weight[1]
+
+		cy.adminLogin()
+		studentPage.goToRegister()
+		studentPage.submitForm(student)
+		studentPage.failWeightRegister()
+		cy.log(studentPage.failWeightRegister())
+	})
 })

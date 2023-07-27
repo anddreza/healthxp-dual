@@ -46,6 +46,14 @@ class StudentPage{
 		cy.contains('span', 'A idade mínima para treinar é 16 anos!')
 	}
 
+	failWeightRegister(){
+		if(cy.get('div[id="swal2-content"]')
+			.should('have.text', 'Dados cadastrados com sucesso.')){
+			return true; 
+	} return false; 
+	
+	}
+
 }
 
 export default new StudentPage()

@@ -40,7 +40,7 @@ describe('alunos', ()=> {
 
 	})
 
-	it.only('todos os campos são obrigatórios', () => {
+	it('todos os campos são obrigatórios', () => {
 		const student = students.required
 
 		cy.adminLogin()
@@ -59,4 +59,27 @@ describe('alunos', ()=> {
 		//	.should('be.visible')
 
 	})
+
+	it('não deve cadastrar aluno com idade com 15 anos', () => {
+		const student = students.student_15
+	
+		cy.adminLogin()
+		studentPage.goToRegister()
+		studentPage.submitForm(student)
+		studentPage.ageMin()
+
+	})
+	
+	it.only('não deve cadastrar aluno com idade com 16 anos', () => {
+		const student = students.student_16
+	
+		cy.adminLogin()
+		studentPage.goToRegister()
+		studentPage.submitForm(student)
+
+		studentPage.ageMin()
+
+
+	})
+
 })

@@ -23,9 +23,9 @@ class StudentPage{
 
 	requiredMessage(label, text){
 		cy.contains('label', label)
-		.parent()
-		.find('span')
-		.should('have.text', text)
+			.parent()
+			.find('span')
+			.should('have.text', text)
 	}
 	//popUpHave(expectedText){
 	//	cy.get('#swal2-content')
@@ -41,6 +41,11 @@ class StudentPage{
 			.find('button')
 			.click()
 	}
+
+	ageMin(){
+		cy.contains('span', 'A idade mínima para treinar é 16 anos!')
+	}
+
 }
 
 export default new StudentPage()

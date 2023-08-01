@@ -1,12 +1,16 @@
-# healthxp-dual
-Projeto aprendido em bootcamp DualExperience da plataforma QAExperience.
+# 📍 healthxp-dual 
+
+Projeto aprendido em bootcamp DualExperience da plataforma QAExperience. Para mais informações acessar: http://qaxperience.com/
+
 ----------------------------------------------------------------
 ## Start: 
-1. O que foi utilizado?
-[![My Skills](https://skillicons.dev/icons?i=js,html,css)](https://skillicons.dev)
+### 1. O que foi utilizado?
+- Javascript
+- Cypress
+- Vue.js
+- Git
 
-3. Realizar as devidas instalações na api e web
-----------------------------------------------------------------
+### 2. Realizar as devidas instalações na api e web.
 - Depois de baixado o projeto é necessário todas as vezes que subir:
   npm run dev no projeto api
   npm run dev no projeto web

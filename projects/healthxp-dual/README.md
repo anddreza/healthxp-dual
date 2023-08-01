@@ -10,3 +10,5 @@ Aula 2:
 
 Aula 3: 
 Esse cenário novo de alteração para quando vem uma mensagem de alerta e é necessário clica-la para tirar é o cenário mais ideal, necessário implementar isso, popUpBack() dê uma revisada.
+
+Aula 'Cadastro de matriculas', quando quiser pular um cenário pode usar o it.skip

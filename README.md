@@ -15,3 +15,8 @@ Projeto aprendido em bootcamp DualExperience da plataforma QAExperience. Para ma
   npm run dev no projeto api
   npm run dev no projeto web
 - No meu caso como sempre rodo as informações dentro da uma versão específica do node, então é necessário sempre realizar um nvm use 18.12.1
+
+#### 3. Para subir o Cypress dentro do projeto e rodar todos os dias:
+- Depois de já realizado a instalação corretamente;
+- QAx2/projects/healthxp-dual/web
+- npx cypress open  

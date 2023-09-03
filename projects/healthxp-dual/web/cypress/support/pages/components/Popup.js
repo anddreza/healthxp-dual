@@ -1,4 +1,4 @@
-class Popup{
+class Popup {
 
 	content(){
 		return cy.get('#swal2-content')

@@ -1,31 +1,22 @@
 import data from '../fixtures/enrollments.json'
 import enrollsPage from '../support/pages/components/EnrollsPage'
+
 describe('matriculas', () => {
 	it('deve poder matricular um novo aluno', () => {
 		const dataTest = data.create
+
+		cy.task('resetStudent', dataTest.student)
 		cy.adminLogin()
 		enrollsPage.navbar.gotToEnrolls()
 
 		enrollsPage.goToForm()
 
-		cy.get('.select_student')
-			.click()
+		enrollsPage.selectItem('student', dataTest.student.name)
+		enrollsPage.selectItem('plan', dataTest.plan)
 
-		cy.get('input[aria-label="select_student"]')
-			.type(dataTest.student.name)
-
-		cy.contains('div[id*=option]', dataTest.student.name)
-			.click()
-		// Contém div[id*=option]
-		//cy.get(#react-select-2-option-0)
-
-		cy.get('.select_plan')
-			.click()
-
-		cy.get('input[aria-label="select_plan"]')
-			.type(dataTest.plan)
-
-		cy.contains('div[id*=option]', dataTest.plan)
-			.click()
+		enrollsPage.fillCard(dataTest.student)
+		enrollsPage.submit()
+		enrollsPage.popup.haveText('Matrícula cadastrada com sucesso.')
+		
 	})
 })

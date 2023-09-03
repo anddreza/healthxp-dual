@@ -2,7 +2,7 @@ import users from '../fixtures/users.json'
 import loginPage from '../support/pages/LoginPage'
 import studentPage from '../support/pages/StudentPage'
 
-describe ('login', () => {
+describe ('login', () => {''
 	it('deve logar com o perfil do admin',  () => {
 		const user = users.admin
 		//const login = new LoginPage()

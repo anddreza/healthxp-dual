@@ -66,8 +66,8 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 				url: 'http://localhost:3333/sessions',
 				method: 'POST',
 				body: {
-					email: "admin@healthxp.com",
-					password: "xperience"
+					email: users.admin.email,
+					password: users.admin.password
 				}
 			}).then(response => {
 				cy.log(response.body.token)

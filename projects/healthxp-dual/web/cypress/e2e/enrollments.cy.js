@@ -10,11 +10,22 @@ describe('matriculas', () => {
 
 		cy.get('.select_student')
 			.click()
-		//input[aria-label="select-student"]
-		cy.get('input[aria-label="select-student"]')
+
+		cy.get('input[aria-label="select_student"]')
 			.type(dataTest.student.name)
-		
-		//#react-select-2-option-0
-		cy.wait(3000)
+
+		cy.contains('div[id*=option]', dataTest.student.name)
+			.click()
+		// Contém div[id*=option]
+		//cy.get(#react-select-2-option-0)
+
+		cy.get('.select_plan')
+			.click()
+
+		cy.get('input[aria-label="select_plan"]')
+			.type(dataTest.plan)
+
+		cy.contains('div[id*=option]', dataTest.plan)
+			.click()
 	})
 })

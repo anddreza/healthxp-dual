@@ -49,11 +49,11 @@ describe('alunos', () => {
 
 		//label[text()="Nome completo"]/..//span
 		// Esse é mais seguro das duas opções
-		studentPage.requiredMessage('Nome completo', 'Nome é obrigatório')
-		studentPage.requiredMessage('E-mail', 'O email é obrigatório')
-		studentPage.requiredMessage('Idade', 'A idade é obrigatória')
-		studentPage.requiredMessage('Peso (em kg)', 'O peso é obrigatório')
-		studentPage.requiredMessage('Altura', 'A altura é obrigatória')
+		studentPage.alertMessage('Nome completo', 'Nome é obrigatório')
+		studentPage.alertMessage('E-mail', 'O email é obrigatório')
+		studentPage.alertMessage('Idade', 'A idade é obrigatória')
+		studentPage.alertMessage('Peso (em kg)', 'O peso é obrigatório')
+		studentPage.alertMessage('Altura', 'A altura é obrigatória')
 
 		//cy.contains('span', 'Nome é obrigatório')
 		//	.should('be.visible')
@@ -66,27 +66,30 @@ describe('alunos', () => {
 		cy.adminLogin()
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
-		studentPage.ageMin()
+		//studentPage.ageMin()
+		studentPage.alertMessage('Idade', 'A idade mínima para treinar é 16 anos!')
 
 	})
 
 	it('não deve cadastrar aluno com peso menor ou igual a zero', () => {
-		const student = students.student_weight[0]
+		const student = students.inv_weight
 
 		cy.adminLogin()
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
-		studentPage.failWeightRegister()
-		cy.log(studentPage.failWeightRegister())
+		//studentPage.failWeightRegister()
+		//cy.log(studentPage.failWeightRegister())
+		studentPage.alertMessage('Peso (em kg)', 'Peso não permitido')
 	})
 
 	it('não deve cadastrar aluno com altura menor ou igual a zero', () => {
-		const student = students.student_weight[1]
+		const student = students.inv_feet_tall
 
 		cy.adminLogin()
 		studentPage.goToRegister()
 		studentPage.submitForm(student)
-		studentPage.failWeightRegister()
-		cy.log(studentPage.failWeightRegister())
+		//studentPage.failWeightRegister()
+		//cy.log(studentPage.failWeightRegister())
+		studentPage.alertMessage('Altura', 'Altura não permitida')
 	})
 })

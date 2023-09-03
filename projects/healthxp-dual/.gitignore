@@ -3,4 +3,3 @@ package.json
 cypress/downloads
 cypress/videos
 ./web/node_modules/.package-lock.json
-./apps

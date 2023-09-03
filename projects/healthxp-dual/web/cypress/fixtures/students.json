@@ -34,7 +34,7 @@
 		"weight": "90",
 		"feet_tall": "1.80"
 	},
-	"student_weight": [
+	"inv_weight": 
 		{
 			"name": "Lucas",
 			"email": "lucasteste2@gmail.com",
@@ -42,6 +42,7 @@
 			"weight": "-10",
 			"feet_tall": "1.90"
 		},
+	"inv_feet_tall":
 		{
 			"name": "Gabriela",
 			"email": "gabrielteste2@gmail.com",
@@ -49,5 +50,4 @@
 			"weight": "80",
 			"feet_tall": "-10"
 		}
-	]
 }

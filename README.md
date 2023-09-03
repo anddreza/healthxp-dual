@@ -8,7 +8,10 @@ Projeto aprendido em bootcamp DualExperience da plataforma QAExperience. Para ma
 - Cypress
 - Vue.js
 - Git
-- Insomnia
+- Insomnia ou Postman
+
+[![My Skills](https://skillicons.dev/icons?i=js,vue,git,postman)](https://skillicons.dev)
+
 
 #### 2. Realizar as devidas instalações na api e web.
 Depois de baixado o projeto é necessário todas as vezes que subir:

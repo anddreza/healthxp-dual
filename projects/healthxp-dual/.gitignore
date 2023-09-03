@@ -1,3 +1,6 @@
-./node_modules
-./package.json
-./package-lock.json
+node_modules
+package.json
+cypress/downloads
+cypress/videos
+./web/node_modules/.package-lock.json
+./apps

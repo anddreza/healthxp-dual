@@ -1,6 +1,1 @@
-apps/healthxp/README.md
-apps/healthxp/web/build
-apps/healthxp/web/node_modules
-apps/healthxp/web*
-apps/healthxp/api*
-apps/healthxp/_MACOSX
+projects/healthxp-dual/web/cypress/cypress/fixtures/example.json

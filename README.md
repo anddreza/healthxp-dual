@@ -9,6 +9,7 @@ Projeto aprendido em bootcamp DualExperience da plataforma QAExperience. Para ma
 - Vue.js
 - Git
 - Insomnia ou Postman
+- ElephantSQL
 
 [![My Skills](https://skillicons.dev/icons?i=js,vue,git,postman)](https://skillicons.dev)
 
@@ -46,3 +47,15 @@ Essa imagem mostra como ficará quando feito login:
 
 Essa imagem mostra exatamente como ficará quando realizado corretamente a chamada da API: 
 <img src="./projects/healthxp-dual/web/insomnia_enrollments.png">
+
+
+* Módulo 4 - Aula 1: Construindo minha API Helper Parte 1
+1. Foi criado uma pasta novo no /healthxp-dual/helpers
+2. Iniciado um novo projeto com npm init 
+3. Ele pediu para acessar http://www.npmjs.com/package/express
+4. Instala o programa com npm install express
+5. Para subir a aplicação e testar se tiver correta: node app.js[nome do arquivo]
+6. Para verificar as alterações era necessário tirar e colocar a API do ar toda vez, mas para isso não acontecer mais é necessário instalar:
+npm install nodemon -> ele monitora o código
+7. npx nodemon app.js -> subir a aplicação então assim a partir de agora.
+8. Foi usado para instalar também npm install pg > será usado o mesmo modulo para conectar no banco de dados

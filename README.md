@@ -59,3 +59,8 @@ Essa imagem mostra exatamente como ficará quando realizado corretamente a chama
 npm install nodemon -> ele monitora o código
 7. npx nodemon app.js -> subir a aplicação então assim a partir de agora.
 8. Foi usado para instalar também npm install pg > será usado o mesmo modulo para conectar no banco de dados
+
+Módulo 4 - Construindo minha API Helper Parte 2
+Foram realizadas algumas operações de visualizações sobre informações inseridas dentro do banco de dados ElephantSQL com o objetivo de averiguar se estava funcionando corretamente. 
+
+SELECT * FROM students where email 'johndoe@gmail.com'

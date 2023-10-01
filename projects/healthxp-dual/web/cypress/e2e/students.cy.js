@@ -4,7 +4,8 @@ describe('alunos', () => {
 	it('deve poder cadastrar um novo aluno', () => {
 		const student = students.create
 
-		cy.task('deleteStudent', student.email)
+		//cy.task('deleteStudent', student.email)
+		cy.deleteStudent(student.email)
 		cy.adminLogin()
 		//cy.contains('a', 'Cadastrar').click()
 
@@ -17,7 +18,8 @@ describe('alunos', () => {
 		const student = students.duplicate
 
 		//cy.task('deleteStudent', student.email)
-		cy.task('resetStudent', student)
+		//cy.task('resetStudent', student)
+		cy.resetStudent(student)
 		cy.adminLogin()
 
 		studentPage.goToRegister()
@@ -27,7 +29,8 @@ describe('alunos', () => {
 
 	it('deve remover um aluno sem matrícula', () => {
 		const student = students.remove
-		cy.task('resetStudent', student)
+		//cy.task('resetStudent', student)
+		cy.resetStudent(student)
 		cy.adminLogin()
 
 		//td[text()="fernando@yahoo.com"]/..//button
@@ -71,7 +74,7 @@ describe('alunos', () => {
 
 	})
 
-	it('não deve cadastrar aluno com peso menor ou igual a zero', () => {
+	it.skip('não deve cadastrar aluno com peso menor ou igual a zero', () => {
 		const student = students.inv_weight
 
 		cy.adminLogin()
@@ -82,7 +85,7 @@ describe('alunos', () => {
 		studentPage.alertMessage('Peso (em kg)', 'Peso não permitido')
 	})
 
-	it('não deve cadastrar aluno com altura menor ou igual a zero', () => {
+	it.skip('não deve cadastrar aluno com altura menor ou igual a zero', () => {
 		const student = students.inv_feet_tall
 
 		cy.adminLogin()

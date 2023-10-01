@@ -53,6 +53,7 @@ Cypress.Commands.add('adminLogin', () => {
 })
 
 Cypress.Commands.add('createEnroll', (dataTest) => {
+	// 1. A task é a selectStudentId que conecta no banco via Cypress e obtém o ID do usuário via email
 	cy.task('selectStudentId', dataTest.student.email)
 		.then(result => {
 			//obter ID do usuário duplicado
@@ -63,13 +64,16 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 			//cy.log(JSON.stringify(payload))
 
 			cy.request({
+				// 2. Uma request na rota /sessions, na API do sistema, pq na API do sistema? Porque ela tem autenticação, tem segurança
 				url: 'http://localhost:3333/sessions',
 				method: 'POST',
 				body: {
+				// 3. Passando usuário e senha do administrador para obter o token
 					email: users.admin.email,
 					password: users.admin.password
 				}
 			}).then(response => {
+				// 3. Aqui obtém o token
 				cy.log(response.body.token)
 
 				const payload = {
@@ -77,12 +81,13 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 					plan_id: dataTest.plan.id,
 					credit_card: "4242"
 				}
-
+				// 5. É feito uma request na rota /enrollments para poder cadastrar o aluno
 				cy.request({
 					url: 'http://localhost:3333/enrollments',
 					method: 'POST',
 					body: payload,
 					headers: {
+						// 4. Para colocar uma matrícula no sistema via API precisa de uma autorização
 						Authorization: 'Bearer ' + response.body.token
 					}
 				}).then(response => {
@@ -90,4 +95,23 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 				})
 			})
 		})
+})
+
+Cypress.Commands.add('resetStudent', (student) => {
+	cy.request({
+		url: 'http://localhost:5000/students', 
+		method: 'POST', 
+		body: student
+	}).then(response => {
+		expect(response.status).to.eq(201)
+	})
+})
+
+Cypress.Commands.add('deleteStudent', (studentEmail) => {
+	cy.request({
+		url: 'http://localhost:5000/students/' + studentEmail, 
+		method: 'DELETE',
+	}).then(response => {
+		expect(response.status).to.eq(204)
+	})
 })

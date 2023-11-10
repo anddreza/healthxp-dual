@@ -42,6 +42,7 @@ Cypress.Commands.add('popUpHave', (text) => {
 			.should('be.visible')
 			.should('have.text', text)
 })*/
+import { data } from 'cypress/types/jquery'
 import users from '../fixtures/users.json'
 import loginPage from './pages/LoginPage'
 import studentPage from './pages/StudentPage'
@@ -52,9 +53,30 @@ Cypress.Commands.add('adminLogin', () => {
 	studentPage.navbar.userLoggedIn(user.name)
 })
 
+Cypress.Commands.add('createQuestion', (question) => {
+	cy.request({
+		url: 'http://localhost:3333/students/3/help-orders',
+		method: 'POST',
+		body: question
+	}).then(response => {
+		expect(response.status).to.eq(201)
+	})
+})
+
 Cypress.Commands.add('createEnroll', (dataTest) => {
+	cy.request({
+		url: 'http://localhost:5000/enrolls',
+		method: 'POST', 
+		body:{
+			email: dataTest.student.email, 
+			plan_id: dataTest.plan.id,
+			price: dataTest.plan.price
+		}
+	}).then(response => {
+		expect(response.status).to.eq(201)
+	})
 	// 1. A task é a selectStudentId que conecta no banco via Cypress e obtém o ID do usuário via email
-	cy.task('selectStudentId', dataTest.student.email)
+	/* cy.task('selectStudentId', dataTest.student.email)
 		.then(result => {
 			//obter ID do usuário duplicado
 
@@ -94,7 +116,7 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 					expect(response.status).to.eq(201)
 				})
 			})
-		})
+		}) */
 })
 
 Cypress.Commands.add('resetStudent', (student) => {

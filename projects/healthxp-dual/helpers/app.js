@@ -1,5 +1,7 @@
 //o codigo que vai fazer o require no express
 const express = require('express')
+
+const Joi = require('joi')
 //instancia do express
 const app = express()
 
@@ -9,6 +11,15 @@ const db = require('./db')
 
 app.get('/', function (req, res) {
   res.json({ message: 'Hello API Helper'})
+})
+
+const studentSchema = Join.object({
+		name: Joi.string().required(),
+		email: Joi.string().email().required(),
+		age: Joi.number().required(),
+		weight: Joi.number().required(),
+		feet_tall: Joi.number().required()
+	
 })
 
 app.post('/students', db.deleteAndCreateStudent)

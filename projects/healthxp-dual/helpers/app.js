@@ -13,7 +13,8 @@ app.get('/', function (req, res) {
 
 app.post('/students', db.deleteAndCreateStudent)
 app.delete('/students/:email', db.deleteStudentByEmail)
-app.get('/students/:email', db.selectStudent)
+/* app.get('/students/:email', db.selectStudent) */
+app.post('/enrolls', db.insertEnrollByEmail)
 
 app.listen(5000)	
 

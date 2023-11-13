@@ -30,20 +30,3 @@ Para subir o Cypress dentro do projeto e rodar todos os dias. Depois de já real
 
 #### 3. Como gerar cartões de crédito? 
 https://stripe.com/docs/testing
-
-
-#### Observação de aula
-
-### Módulo 3 - Aula 9: Cadastrando matrículas:
-Instalação do Insomnia
-Fetch/XHR -> chamadas que a API faz para consumir o back-end. 
-
-Explicação breve sobre o Erro: 
-Erro 4XX -> erro para quem está consumindo a API, o lado do cliente
-Quando estou tratando informações da API, o ser humano é a terceira pessoa, a primeira "pessoa" é a aplicação que está consumindo a API
-
-Essa imagem mostra como ficará quando feito login: 
-<img src="./projects/healthxp-dual/web/heath_session.png">
-
-Essa imagem mostra exatamente como ficará quando realizado corretamente a chamada da API: 
-<img src="./projects/healthxp-dual/web/insomnia_enrollments.png">

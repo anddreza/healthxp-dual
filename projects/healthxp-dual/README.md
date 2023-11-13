@@ -1,3 +1,4 @@
+## Módulo 3 - Projeto prático de automação web
 ### Aula 1: Iniciando com Cypress: 
 - Teste de software é composto por massa de teste que é a precondição, input que é a entrada de dados, output saída de dados 
 
@@ -53,9 +54,12 @@ Quando estou tratando informações da API, o ser humano é a terceira pessoa, a
 * Essa imagem mostra exatamente como ficará quando realizado corretamente a chamada da API: 
 <img src="../healthxp-dual/web/insomnia_enrollments.png">
 
+### Aula 10: Consumindo a API com Cypress
+- Dentro de cypress.config.js o selectStudentId somente trás o Id do aluno
+- Até então estavamos usando o cy.task
+- O arquivo temp.json foi criado para verificar como era retornado o id do aluno 
 
-
-### Módulo 4 
+## Módulo 4 - API Helper
 - Aula 1: Construindo minha API Helper Parte 1
 1. Foi criado uma pasta novo no /healthxp-dual/helpers
 2. Iniciado um novo projeto com npm init 

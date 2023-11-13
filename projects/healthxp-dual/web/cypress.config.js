@@ -34,7 +34,7 @@ module.exports = defineConfig({
 
           return new Promise(function(resolve, reject){
             const pool = new Pool(dbConfig)
-
+            
             const query = 'DELETE FROM students WHERE email = $1;'
             pool.query(query, [studentEmail], function(error, result){
               if(error){

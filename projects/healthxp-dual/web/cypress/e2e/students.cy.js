@@ -6,7 +6,10 @@ describe('alunos', () => {
 
 		//cy.task('deleteStudent', student.email)
 		cy.deleteStudent(student.email)
+
+		//O adminLogin está todo dentro de commands.js
 		cy.adminLogin()
+		
 		//cy.contains('a', 'Cadastrar').click()
 
 		studentPage.goToRegister()
@@ -34,7 +37,6 @@ describe('alunos', () => {
 		cy.adminLogin()
 
 		//td[text()="fernando@yahoo.com"]/..//button
-
 
 		studentPage.search(student.name)
 		studentPage.remove(student.email)

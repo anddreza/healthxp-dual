@@ -9,8 +9,7 @@ describe ('login', () => {''
 		
 		loginPage.doLogin(user)
 		//cy.doLogin(user)
-		studentPage.navbar.userLoggedIn(user.name)
-			
+		studentPage.navbar.userLoggedIn(user.name)			
 	})
 
 	it('não deve logar com senha incorreta', () => {
@@ -50,7 +49,7 @@ describe ('login', () => {''
 			//login.popUpHave('Insira um email válido.')
 			loginPage.popup.back()
 		});
-
+		//comparando a lista 
 		cy.wrap(outputMessages).should('deep.equal', expectedMessages )
 	})
 

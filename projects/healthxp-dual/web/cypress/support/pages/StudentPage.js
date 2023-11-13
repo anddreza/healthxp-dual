@@ -2,6 +2,7 @@ import navbar from "./components/Navbar"
 import popup from "./components/Popup"
 class StudentPage{
 
+	//um constructor que é executada automaticamente quando a classe é inicializada
 	constructor(){
 		this.navbar = navbar
 		this.popup = popup
@@ -23,8 +24,8 @@ class StudentPage{
 
 	alertMessage(label, text){
 		cy.contains('label', label)
-			.parent()
-			.find('span')
+			.parent() //para me dar o pai
+			.find('span') //procurar a span
 			.should('have.text', text)
 	}
 	//popUpHave(expectedText){
@@ -37,7 +38,9 @@ class StudentPage{
 	}
 
 	remove(email){
+		//a linha do registro que contém o email requerido 
 		cy.contains('tr', email, {timeout: 10000})
+		//busca o button que é o unico que tem o icone de lixeira
 			.find('button')
 			.click()
 	}

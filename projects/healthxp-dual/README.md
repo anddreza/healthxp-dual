@@ -39,10 +39,7 @@
 - Verificando como funciona a API com o Insomnia, servir como guia.
 1. Criando uma Collection: HeathXP;
 2. Criando a primeira requisição: http://localhost:3333/enrollments
-Verificar essa porta, porque ela roda na 5000 e as vezes na 3333, tem que verificar!
-2.1 Verificar a authorization, capaz de estar errado. 
-
-
+2.1 Verificar a authorization, capaz de estar errado, pode já ter expirado
 
 Fetch/XHR -> chamadas que a API faz para consumir o back-end. 
 

@@ -13,13 +13,12 @@ app.get('/', function (req, res) {
   res.json({ message: 'Hello API Helper'})
 })
 
-const studentSchema = Join.object({
+const studentSchema = Joi.object({
 		name: Joi.string().required(),
 		email: Joi.string().email().required(),
 		age: Joi.number().required(),
 		weight: Joi.number().required(),
 		feet_tall: Joi.number().required()
-	
 })
 
 app.post('/students', db.deleteAndCreateStudent)

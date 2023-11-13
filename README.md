@@ -34,7 +34,7 @@ https://stripe.com/docs/testing
 
 #### Observação de aula
 
-* Módulo 3 - Aula 9: Cadastrando matrículas:
+### Módulo 3 - Aula 9: Cadastrando matrículas:
 Instalação do Insomnia
 Fetch/XHR -> chamadas que a API faz para consumir o back-end. 
 
@@ -47,20 +47,3 @@ Essa imagem mostra como ficará quando feito login:
 
 Essa imagem mostra exatamente como ficará quando realizado corretamente a chamada da API: 
 <img src="./projects/healthxp-dual/web/insomnia_enrollments.png">
-
-
-* Módulo 4 - Aula 1: Construindo minha API Helper Parte 1
-1. Foi criado uma pasta novo no /healthxp-dual/helpers
-2. Iniciado um novo projeto com npm init 
-3. Ele pediu para acessar http://www.npmjs.com/package/express
-4. Instala o programa com npm install express
-5. Para subir a aplicação e testar se tiver correta: node app.js[nome do arquivo]
-6. Para verificar as alterações era necessário tirar e colocar a API do ar toda vez, mas para isso não acontecer mais é necessário instalar:
-npm install nodemon -> ele monitora o código
-7. npx nodemon app.js -> subir a aplicação então assim a partir de agora.
-8. Foi usado para instalar também npm install pg > será usado o mesmo modulo para conectar no banco de dados
-
-Módulo 4 - Construindo minha API Helper Parte 2
-Foram realizadas algumas operações de visualizações sobre informações inseridas dentro do banco de dados ElephantSQL com o objetivo de averiguar se estava funcionando corretamente. 
-
-SELECT * FROM students where email 'johndoe@gmail.com'

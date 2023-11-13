@@ -36,38 +36,47 @@ describe('matriculas', () => {
 				//Depois de verificar o id, insere nela
 
 				studentId = result.sucess.rows[0].id
+	
+				//cy.log(JSON.stringify(payload))
 
 
-				payload = {
-					student_id: studentId, //troca esse valor por studentId
-					plan_id: dataTest.plan.id,   ///troca esse valor por dataTest.plan.id
-					credit_card: "4242"
-				}	
+				cy.request({
+					url:'http://localhost:3333/sessions',
+					method: 'POST',
+					body: {
+						email: "admin@healthxp.com",
+    					password: "xperience"
+					}
+				}).then(response => {
+					cy.log(response.body.token)
+
+
+					const payload = {
+						student_id: studentId, //troca esse valor por studentId
+						plan_id: dataTest.plan.id,   ///troca esse valor por dataTest.plan.id
+						credit_card: "4242"
+					}
+
+				
+						//Uma função do Cypress para consumir a API
+						cy.request({
+							url: 'http://localhost:3333/enrollments', 
+							method: POST,
+							body: payload, 
+							headers:{
+								Authorization: 'Bearer' + response.body.token
+							}
+						}).then(response=> {
+							expect(response.status).to.equal(201)
+						})	
+				})
+
+				
 
 
 			})
 		//Ele não consegue pegar as informações porque o id vem no mesmo momento que a implementação do payload, o ID não vem para dentro, e não é possível visualizar
-		cy.log(JSON.stringify(payload))
-
-		//Uma função do Cypress para consumir a API
-
-		cy.request({
-			url: 'http://localhost:3333/enrollments', 
-			method: POST,
-			body: payload 
-		})
-
-
-		cy.adminLogin()
 		
-		enrollsPage.navbar.gotToEnrolls()
-		enrollsPage.goToForm()
-		enrollsPage.selectItem('student', dataTest.student.name)
-		enrollsPage.selectItem('plan', dataTest.plan.name)
-		enrollsPage.fillCard(dataTest.student)
-		enrollsPage.submit()
-		
-		enrollsPage.popup.haveText('O aluno já possui matrícula cadastrada!')
 
 
 	})

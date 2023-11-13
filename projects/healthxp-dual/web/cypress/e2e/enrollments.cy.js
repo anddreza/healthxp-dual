@@ -36,13 +36,18 @@ describe('matriculas', () => {
 				//Depois de verificar o id, insere nela
 
 				studentId = result.sucess.rows[0].id
+
+
+				payload = {
+					student_id: studentId, //troca esse valor por studentId
+					plan_id: dataTest.plan.id,   ///troca esse valor por dataTest.plan.id
+					credit_card: "4242"
+				}	
+
+
 			})
 		//Ele não consegue pegar as informações porque o id vem no mesmo momento que a implementação do payload, o ID não vem para dentro, e não é possível visualizar
-		const payload = {
-			student_id: studentId, //troca esse valor por studentId
-			plan_id: dataTest.plan.id,   ///troca esse valor por dataTest.plan.id
-			credit_card: "4242"
-		}	
+		cy.log(JSON.stringify(payload))
 
 		//Uma função do Cypress para consumir a API
 

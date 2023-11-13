@@ -18,6 +18,42 @@ JSON -> é nativo, tem uma leitura mais simples apesar de ter mais linhas, é ma
 
 Arrow function, function -> duas formas de trabalhar com function em javascript
 
+Custom Commands -> serve para encapsular 
+
 ### Aula 4: Variação de cenários
+- Uso do forEach para testar diversos emails incorretos
+
+### Aula 5: Tasks e conexão com o banco de dados 
+- O manipulador task de eventos do plugin pode retornar um valor ou uma promessa.
+.invoke -> posso invocar textos e propriedades
+.then -> callback desse invoke
+.push() -> é uma função nativa do Javascript para adicionar itens numa lista, array de texto ou string
+
+- Utilizando o faker (foi usado somente como uma das estratégias, mas foi mostrado os malefícios da utilização)
+
+- Instalando e implementado a biblioteca pg, acesso pelo site: http://node-postgres.com/apis/pool (foi recomendado usar o Pool, pois é mais simples, mas poderia usar o modo pg.Client)
+
+### Aula 6: Avançando com componentes
+
+- Components para poder ficar dividido e dar manutenção de forma mais "tranquila", o popup fica somente em um lugar e é invocado nas classes de StudentPage, LoginPage também. 
 
 
+
+
+
+### Módulo 4 
+- Aula 1: Construindo minha API Helper Parte 1
+1. Foi criado uma pasta novo no /healthxp-dual/helpers
+2. Iniciado um novo projeto com npm init 
+3. Ele pediu para acessar http://www.npmjs.com/package/express
+4. Instala o programa com npm install express
+5. Para subir a aplicação e testar se tiver correta: node app.js[nome do arquivo]
+6. Para verificar as alterações era necessário tirar e colocar a API do ar toda vez, mas para isso não acontecer mais é necessário instalar:
+npm install nodemon -> ele monitora o código
+7. npx nodemon app.js -> subir a aplicação então assim a partir de agora.
+8. Foi usado para instalar também npm install pg > será usado o mesmo modulo para conectar no banco de dados
+
+### Módulo 4 - Construindo minha API Helper Parte 2
+Foram realizadas algumas operações de visualizações sobre informações inseridas dentro do banco de dados ElephantSQL com o objetivo de averiguar se estava funcionando corretamente. 
+
+SELECT * FROM students where email 'johndoe@gmail.com'

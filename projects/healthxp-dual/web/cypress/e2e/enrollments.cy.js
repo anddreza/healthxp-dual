@@ -21,42 +21,37 @@ describe('matriculas', () => {
 	})
 
 	it('não deve criar matricula duplicada', () => {
-		// Primeira coisa a fazer é definir a massa de teste diferente da que foi usada no cenário anterior
 		const dataTest = data.duplicate
 
 		// reconstrução do usuário 
-		//cy.task('resetStudent', dataTest.student)
-		cy.resetStudent(dataTest.student)
-		cy.createEnroll(dataTest)
-
-		/*
+		cy.task('resetStudent', dataTest.student)
 
 		let studentId; 
 		cy.task('selectStudentId', dataTest.student.email)
 			.then(result => {
-				PRIMEIRO RODOU ESSE: cy.log(JSON.stringfy(result)) o resultado está em temp.json
-				cy.log(result.sucess.rows[0].id) -> Agora consegue pegar o ID do usuário que foi cadastrado
+				//PRIMEIRO RODOU ESSE: cy.log(JSON.stringfy(result)) o resultado está em temp.json
+				cy.log(result.sucess.rows[0].id) //-> Agora consegue pegar o ID do usuário que foi cadastrado
 
-				CRIOU A VARIAVEL let studentId;
-				Depois de verificar o id, insere nela
+				//CRIOU A VARIAVEL let studentId;
+				//Depois de verificar o id, insere nela
 
 				studentId = result.sucess.rows[0].id
 			})
-		
+		//Ele não consegue pegar as informações porque o id vem no mesmo momento que a implementação do payload, o ID não vem para dentro, e não é possível visualizar
 		const payload = {
-			student_id: 326, //troca esse valor por studentId
-			plan_id: 1,   ///troca esse valor por dataTest.plan.id
+			student_id: studentId, //troca esse valor por studentId
+			plan_id: dataTest.plan.id,   ///troca esse valor por dataTest.plan.id
 			credit_card: "4242"
 		}	
 
-		Uma função do Cypress para consumir a API
+		//Uma função do Cypress para consumir a API
 
 		cy.request({
-			url: http://localhost:3333/enrollments, 
+			url: 'http://localhost:3333/enrollments', 
 			method: POST,
 			body: payload 
 		})
-		*/
+
 
 		cy.adminLogin()
 		

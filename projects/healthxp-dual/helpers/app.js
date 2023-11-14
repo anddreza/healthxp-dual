@@ -6,9 +6,7 @@ const validator = require('express-joi-validation').createValidator({passError: 
 
 //instancia do express
 const app = express()
-
 app.use(express.json())
-
 const db = require('./db')
 
 app.get('/', function (req, res) {
@@ -30,6 +28,7 @@ app.delete('/students/:email', db.deleteStudentByEmail)
 /* app.get('/students/:email', db.selectStudent) */
 app.post('/enrolls', db.insertEnrollByEmail)
 
+//https://www.npmjs.com/package/express-joi-validation
 app.use((err, req, res, next) => {
 	if (err && err.error && err.error.isJoi) {
 	  // we had a joi error, let's return a custom 400 json response

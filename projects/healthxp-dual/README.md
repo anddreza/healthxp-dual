@@ -123,6 +123,26 @@ npm install express-joi-validator
 npm install joi
 ```
 
+Foi feito mais algumas configurações para verificar quando não passado a informação de um campo irá vir um erro da API mostrando exatamente o que está acontecendo, também foi instalado o dotenv [https://www.npmjs.com/package/dotenv]:
+
+```
+npm i dotenv
+```
+
+Usado tanto dentro da healthxp-dual/helpers, quanto dentro do /web
+- Quando mexe no arquivo de configuração do Cypress é necessário abrir e fecha-lo novamente
+
+- O arquivo .env não deu certo, então foi utilizada outra estratégia: 
+ env: {
+      apiHelper: 'http://localhost:5000'
+    }
+dentro do cypress.config.js e as Urls do commands.js foram modificadas para Cypress.env('apiHelper')
+
+Rodando tudo sem abrir a interface: 
+
+```
+npx cypress run
+```
 
 ## Módulo 5 - Estratégias para testes de integração
 
@@ -139,17 +159,9 @@ JSON: {
 	"question": "Enviando duvida pelo Insomnia!"
 	}	
 
-Foi feito mais algumas configurações para verificar quando não passado a informação de um campo irá vir um erro da API mostrando exatamente o que está acontecendo, também foi instalado o dotenv [https://www.npmjs.com/package/dotenv]:
+Deletar todas as notificações: 
+DELETE FROM "public"."help_orders";
 
-```
-npm i dotenv
-```
-
-Usado tanto dentro da healthxp-dual/helpers, quanto dentro do /web
-- Quando mexe no arquivo de configuração do Cypress é necessário abrir e fecha-lo novamente
-
-- O arquivo .env não deu certo, então foi utilizada outra estratégia: 
- env: {
-      apiHelper: 'http://localhost:5000'
-    }
-dentro do cypress.config.js e as Urls do commands.js foram modificadas para Cypress.env('apiHelper')
+#### Aula 2: Reports ricos com Tesults.
+https://tesults.com/docs/pricing
+https://www.cypress.io/pricing

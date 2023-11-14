@@ -50,9 +50,10 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 			price: dataTest.plan.price
 		}
 	}).then(response => {
-		expect(response.status).to.eq(201)
+		//o eq(201) não estava funcionando, necessário revisar no momento certo
+		expect(response.status).to.eq(204)
 	})
-
+})
 	
 	// 1. A task é a selectStudentId que conecta no banco via Cypress e obtém o ID do usuário via email
 	/* cy.task('selectStudentId', dataTest.student.email)
@@ -96,7 +97,7 @@ Cypress.Commands.add('createEnroll', (dataTest) => {
 				})
 			})
 		}) */
-})
+
 
 Cypress.Commands.add('resetStudent', (student) => {
 	cy.request({

@@ -27,6 +27,7 @@ describe('matriculas', () => {
 		// reconstrução do usuário 
 		//cy.task('resetStudent', dataTest.student)
 		cy.resetStudent(dataTest.student)
+		//Customm Command que faz o cadastro da tarefa para testar a duplicidade
 		cy.createEnroll(dataTest)
 
 		cy.adminLogin()

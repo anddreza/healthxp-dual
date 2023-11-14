@@ -7,7 +7,7 @@ describe('receber perguntas', ()=> {
 		const dataTest = data.create;
 		cy.resetStudent(dataTest.student)
 		cy.createEnroll(dataTest)
-		cy.createQuestion
+		cy.createQuestion(dataTest.question)
 
 	})
 })

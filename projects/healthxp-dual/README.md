@@ -61,7 +61,6 @@ Quando estou tratando informações da API, o ser humano é a terceira pessoa, a
 
 ## Módulo 4 - API Helper
 
-
 #### Aula 1: Construindo minha API Helper Parte 1
 A partir desse momento ele deixa de trabalhar com tasks e cria essa pasta helpers. 
 - Tudo no javascript é orientado a função. 
@@ -98,3 +97,59 @@ Exemplo: cy.task('resetStudent', student)
 Foram realizadas algumas operações de visualizações sobre informações inseridas dentro do banco de dados ElephantSQL com o objetivo de averiguar se estava funcionando corretamente. 
 
 SELECT * FROM students where email 'johndoe@gmail.com'
+
+INSERT INTO enrollments(enrollment_code, student_Id, plan_id, credit_card, status, price)
+SELECT 
+'XPT0123' as enrollment_code, 
+id as student_id,
+1 as plan_id, 
+'4242' as credit_card,
+true as status, 
+99.99 as price
+FROM students 
+WHERE email 'johndoe@gmail.com
+
+Tem alguns campos que serão customizados: email, plano, preço 
+
+	if(student.name === '' || !student.name){
+		return res.status(400).json({message: 'Name is required'})
+	}
+-> Para verificar se o nome campo está preenchido, porém foi utilizado uma biblioteca que poderia ajudar para verificar isso [https://www.npmjs.com/package/express-joi-validator].
+```
+npm install express-joi-validator
+```
+
+```
+npm install joi
+```
+
+
+## Módulo 5 - Estratégias para testes de integração
+
+#### Aula 1:  Enviando notificações através da API
+POST na http://localhost:3333/students
+- Como a aplicação manda essa dúvida via API? 
+Consegue obter o identificador do aluno, uma vez que o aluno faz login na aplicação 
+
+select * from students where email= 'fernando@yahoo.com';
+ID do aluno 352
+
+http://localhost:3333/students/352/help-order
+JSON: {
+	"question": "Enviando duvida pelo Insomnia!"
+	}	
+
+Foi feito mais algumas configurações para verificar quando não passado a informação de um campo irá vir um erro da API mostrando exatamente o que está acontecendo, também foi instalado o dotenv [https://www.npmjs.com/package/dotenv]:
+
+```
+npm i dotenv
+```
+
+Usado tanto dentro da healthxp-dual/helpers, quanto dentro do /web
+- Quando mexe no arquivo de configuração do Cypress é necessário abrir e fecha-lo novamente
+
+- O arquivo .env não deu certo, então foi utilizada outra estratégia: 
+ env: {
+      apiHelper: 'http://localhost:5000'
+    }
+dentro do cypress.config.js e as Urls do commands.js foram modificadas para Cypress.env('apiHelper')

@@ -7,7 +7,7 @@ class LoginPage{
 	}
 
 	go(){
-		cy.visit('http://localhost:3000')
+		cy.visit('/')
 	}
 	fill(user){
 		cy.get('input[name=email]').clear({force: true}).as('email')

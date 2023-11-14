@@ -60,18 +60,41 @@ Quando estou tratando informações da API, o ser humano é a terceira pessoa, a
 - O arquivo temp.json foi criado para verificar como era retornado o id do aluno 
 
 ## Módulo 4 - API Helper
-- Aula 1: Construindo minha API Helper Parte 1
+
+
+#### Aula 1: Construindo minha API Helper Parte 1
+A partir desse momento ele deixa de trabalhar com tasks e cria essa pasta helpers. 
+- Tudo no javascript é orientado a função. 
+
 1. Foi criado uma pasta novo no /healthxp-dual/helpers
 2. Iniciado um novo projeto com npm init 
 3. Ele pediu para acessar http://www.npmjs.com/package/express
 4. Instala o programa com npm install express
-5. Para subir a aplicação e testar se tiver correta: node app.js[nome do arquivo]
-6. Para verificar as alterações era necessário tirar e colocar a API do ar toda vez, mas para isso não acontecer mais é necessário instalar:
-npm install nodemon -> ele monitora o código
-7. npx nodemon app.js -> subir a aplicação então assim a partir de agora.
-8. Foi usado para instalar também npm install pg > será usado o mesmo modulo para conectar no banco de dados
+5. Para subir a aplicação e testar se tiver correta: 
+```
+node app.js[nome do arquivo]
+```
+6. Para verificar as alterações era necessário tirar e colocar a API do ar toda vez, mas para isso não acontecer mais é necessário instalar: -> ele monitora o código
+``` 
+npm install nodemon
+```
 
-### Módulo 4 - Construindo minha API Helper Parte 2
+7. -> subir a aplicação então assim a partir de agora.
+```
+npx nodemon app.js
+```
+
+8. Foi usado para instalar também 
+```
+npm install pg
+```
+-> será usado o mesmo modulo para conectar no banco de dados
+
+- Quando chamo uma task no Cypress chamo o nome da task e a massa de teste
+Exemplo: cy.task('resetStudent', student)
+
+
+#### Aula 2: Construindo minha API Helper Parte 2
 Foram realizadas algumas operações de visualizações sobre informações inseridas dentro do banco de dados ElephantSQL com o objetivo de averiguar se estava funcionando corretamente. 
 
 SELECT * FROM students where email 'johndoe@gmail.com'

@@ -1,4 +1,6 @@
 const { defineConfig } = require("cypress");
+require('dotenv').config()
+
 const { Pool } = require('pg')
 const dbConfig = {
   host: 'babar.db.elephantsql.com',
@@ -73,5 +75,10 @@ module.exports = defineConfig({
       })
 
     },
+    projectId: "eaebiy",
+    baseUrl: process.env.BASE_URL,
+    env: {
+      apiHelper: process.env.API_HELPER
+    }
   },
 });

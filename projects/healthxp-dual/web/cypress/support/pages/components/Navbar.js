@@ -9,6 +9,10 @@ class Navbar{
 			.click()
 	
 	}
+
+	openNotifications(){
+		cy.get('.notifications button').click({ force: true })
+	}
 }
 
 export default new Navbar()

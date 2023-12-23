@@ -165,3 +165,64 @@ DELETE FROM "public"."help_orders";
 #### Aula 2: Reports ricos com Tesults.
 https://tesults.com/docs/pricing
 https://www.cypress.io/pricing
+
+## Módulo 6: Configurando o Appium para Android 
+
+#### Aula 1: Instalando o JDK e Android Studio 
+https://developer.android.com/
+https://www.java.com/pt-BR/
+
+#### Servidor do Appium
+- Foi criado uma pasta chamada appium-qax e lá foi inserido:
+```
+npm init
+```
+
+E depois foi inserido o comando para instalação o appium, mas somente para aquele projeto e não de forma universal:
+
+```
+npm i appium@2.0.1
+```
+
+Para colocar o appium no ar:
+```
+npx appium
+```
+
+- O appium é uma ferramenta e também um servidor na qual ele faz a interface com o dispositivo, o appium que vai conectar o dispositivo, mandar notificações etc
+- Uma ferramenta feita em node que irá avaliar seu computador para verificar se ele está preparado para trabalhar com Appium para Android ou ios
+
+```
+npm i appium-doctor
+```
+
+- Para instalar as informações das configurações do Appium desktop:
+platformName | text | Android
+appium:deviceName | text | Android Emulator
+appium:automationName | text | UIAutomator2
+appium:app | filepath | /home/andreza/QAx2/projects/appium-qax/qax-alpha.apk
+
+- Documentação do Appium para rodar algumas configurações que ficam faltando:
+https://appium.io/docs/en/2.1/quickstart/uiauto2-driver/
+
+```
+appium driver install uiautomator2
+```
+
+- O que o Android Studio está fazendo através do scapability?
+1. instalou o apk que é o pacote de distribuição do android
+2. e fez uma seção que é possível inspeccionar os elementos
+
+## Módulo 6: Projeto prático CodeceptJS & Appium
+
+#### Aula 1: CodeceptJS para Mobile
+- Iniciar um projeto com:
+
+```
+npm init
+```
+
+- Logo em seguida rodar o comando, pois essa é a versão compatível com o Appium: 
+
+```
+npm i appium@1.22.3
